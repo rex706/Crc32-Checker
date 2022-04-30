@@ -27,9 +27,11 @@ namespace Crc32_Checker
 
                 var hash = String.Empty;
                 using (var fs = File.Open(file, FileMode.Open))
-                    foreach (byte b in crc32.ComputeHash(fs)) hash += b.ToString("x2").ToLower();
+                    foreach (byte b in crc32.ComputeHash(fs)) 
+                        hash += b.ToString("x2").ToLower();
 
                 Crc32OutputTextBox.Text = hash;
+                Clipboard.SetText(hash);
             }
         }
     }
